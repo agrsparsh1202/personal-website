@@ -1,0 +1,654 @@
+/* ==========================================================================
+   Sparsh Agrawal — Portfolio
+   Palette + type per README.md, cross-checked against legacy reference
+   screenshots (prompts/legacy/screenshots/) — see docs/project_context.md.
+   ========================================================================== */
+
+:root {
+  --ink: #172127;
+  --deep-ink: #11191e;
+  --surface: #202b31;
+  --stone: #ece9e1;
+  --mist: #9ab5bb;
+  --highlight: #da9d66;
+
+  --rule: rgba(236, 233, 225, 0.12);
+  --rule-soft: rgba(236, 233, 225, 0.08);
+
+  --font-display: "Playfair Display", "Georgia", serif;
+  --font-body: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "DM Mono", "SFMono-Regular", Consolas, monospace;
+
+  --shell-max: 1200px;
+  --shell-pad: clamp(1.25rem, 4vw, 3rem);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--stone);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+/* The `hidden` attribute is a low-priority presentational hint — any author
+   rule that touches `display` (like the img/video reset above) beats it.
+   Force it explicitly so hidden media elements (e.g. the lightbox's own
+   <img>/<video>) actually disappear instead of rendering as an empty box. */
+[hidden] {
+  display: none !important;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--stone);
+  margin: 0;
+}
+
+.shell {
+  max-width: var(--shell-max);
+  margin-inline: auto;
+  padding-inline: var(--shell-pad);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mist);
+  margin: 0;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem var(--shell-pad);
+  background: var(--deep-ink);
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.brand {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--stone);
+}
+
+.brand span {
+  color: var(--highlight);
+}
+
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+header nav a {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mist);
+  transition: color 0.2s ease;
+}
+
+header nav a:hover,
+header nav a:focus-visible {
+  color: var(--highlight);
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(220px, 380px) 1fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+  padding-block: clamp(3rem, 8vw, 6rem);
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+  container-type: inline-size;
+}
+
+.portrait {
+  width: clamp(200px, 20vw, 280px);
+  height: clamp(200px, 20vw, 280px);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+}
+
+.association {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.association p {
+  margin: 0;
+  font-family: var(--font-mono);
+  /* Scales with the width of .hero-left itself (container query units),
+     not the viewport — guarantees this stays on one line at any screen
+     size instead of just "usually fitting". */
+  font-size: clamp(0.6rem, 3.4cqw, 0.82rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mist);
+  white-space: nowrap;
+}
+
+.logo-rail {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: clamp(0.4rem, 2vw, 0.75rem);
+  width: 100%;
+}
+
+.logo-rail a {
+  display: contents;
+}
+
+.logo-rail a:focus-visible > * {
+  outline: 2px solid var(--highlight);
+  outline-offset: 3px;
+}
+
+.logo-rail img,
+.logo-rail span {
+  flex: 0 1 64px;
+  aspect-ratio: 1 / 1;
+  width: auto;
+  max-width: 64px;
+  min-width: 0;
+  border-radius: 50%;
+  background: var(--stone);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: contain;
+  padding: 12px;
+}
+
+.logo-rail span {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  padding: 0;
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  container-type: inline-size;
+}
+
+.hero-copy h1 {
+  /* font-size tracks the width of .hero-copy itself (via container query
+     units), not the viewport — keeps "Hello There, I'm ..." on one line
+     at any breakpoint without a page-wide horizontal scroll. */
+  font-size: clamp(1.05rem, 4.3cqw, 2.6rem);
+  line-height: 1.15;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.accent-name {
+  font-style: italic;
+  color: var(--highlight);
+}
+
+.intro {
+  list-style: none;
+  border-top: 1px solid var(--rule);
+}
+
+.intro li {
+  position: relative;
+  padding: 0.9rem 0 0.9rem 1.6rem;
+  border-bottom: 1px solid var(--rule);
+  color: var(--stone);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.intro li::before {
+  content: "\2192";
+  position: absolute;
+  left: 0;
+  color: var(--highlight);
+}
+
+.jump-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  padding-top: 0.25rem;
+}
+
+.jump-links a {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stone);
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--highlight);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.jump-links a:hover,
+.jump-links a:focus-visible {
+  color: var(--highlight);
+  border-color: var(--stone);
+}
+
+/* ==========================================================================
+   Section scaffolding shared by Experience / Education
+   ========================================================================== */
+
+.section-top {
+  padding-top: clamp(2.5rem, 6vw, 4rem);
+  padding-bottom: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+#education {
+  border-top: 1px solid var(--rule);
+}
+
+.section-top .eyebrow,
+.hobbies > .eyebrow {
+  font-size: 0.86rem;
+  letter-spacing: 0.16em;
+}
+
+/* ==========================================================================
+   Experience + Education — shared entry pattern.
+   Each <article class="role"> / <article class="education-row"> is:
+     .role-header (date + role name + org, full width)
+     .role-grid   (logo | bullets | photos, three columns)
+   ========================================================================== */
+
+.role,
+.education-row {
+  padding-block: clamp(1.75rem, 4vw, 2.5rem);
+  border-top: 1px solid var(--rule-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.role:last-child,
+.education-row:last-child {
+  padding-bottom: clamp(3rem, 6vw, 4rem);
+}
+
+.role-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.role-date {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mist);
+}
+
+.role-name {
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  font-weight: 600;
+  line-height: 1.35;
+  scroll-margin-top: 96px;
+}
+
+.role-org {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+}
+
+.role-org i {
+  font-style: italic;
+  color: var(--highlight);
+  font-weight: 500;
+}
+
+.role-grid {
+  display: grid;
+  grid-template-columns: 104px 1fr 300px;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: start;
+}
+
+.role-logo {
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  background: var(--stone);
+  object-fit: contain;
+  padding: 16px;
+}
+
+.role-logo.circles-logo {
+  background: transparent;
+  padding: 0;
+}
+
+.role-logo.text-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--mist);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  color: var(--mist);
+  padding: 0;
+}
+
+.role-bullets {
+  list-style: disc;
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.role-bullets li {
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: var(--stone);
+}
+
+.role-bullets li::marker {
+  color: var(--mist);
+}
+
+.media-circles {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 0.9rem;
+  max-width: 300px;
+}
+
+.media-circles img,
+.media-circles video {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+}
+
+/* ==========================================================================
+   Hobbies
+   ========================================================================== */
+
+.hobbies {
+  padding-block: clamp(3rem, 8vw, 5rem);
+  border-top: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hobbies h2 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.hobbies p:last-child {
+  color: var(--mist);
+  max-width: 42ch;
+}
+
+/* ==========================================================================
+   Contact + footer — deliberate light close, per legacy reference screenshots
+   ========================================================================== */
+
+.contact {
+  background: var(--stone);
+  color: var(--ink);
+  text-align: center;
+  padding: clamp(3rem, 8vw, 5rem) var(--shell-pad);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.contact .eyebrow {
+  color: var(--surface);
+}
+
+.contact a {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  color: var(--highlight);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.15rem;
+  transition: color 0.2s ease;
+}
+
+.contact a:hover,
+.contact a:focus-visible {
+  color: var(--ink);
+}
+
+footer {
+  background: var(--stone);
+  color: var(--surface);
+  text-align: center;
+  padding: 1.5rem var(--shell-pad) 2.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   Scroll-reveal hook (progressive enhancement; see script.js)
+   ========================================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   Lightbox — click any photo/logo to zoom; click outside (or Esc) to close.
+   ========================================================================== */
+
+[data-zoomable] {
+  cursor: zoom-in;
+}
+
+[data-zoomable]:focus-visible {
+  outline: 2px solid var(--highlight);
+  outline-offset: 3px;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(17, 25, 30, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: var(--shell-pad);
+}
+
+.lightbox-stage {
+  width: min(90vw, 960px);
+  height: min(85vh, 680px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-img,
+.lightbox-video {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  background: var(--deep-ink);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: clamp(1rem, 3vw, 2rem);
+  right: clamp(1rem, 3vw, 2rem);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--rule);
+  background: var(--surface);
+  color: var(--stone);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus-visible {
+  background: var(--highlight);
+  color: var(--ink);
+}
+
+body.lightbox-open {
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 860px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-copy {
+    align-items: center;
+    text-align: center;
+  }
+
+  .intro li {
+    text-align: left;
+  }
+
+  .jump-links {
+    justify-content: center;
+  }
+
+  .role-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .media-circles {
+    max-width: none;
+  }
+}
+
+@media (max-width: 540px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  header nav {
+    gap: 1rem;
+  }
+}

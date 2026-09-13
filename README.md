@@ -11,21 +11,23 @@ A responsive, static personal portfolio designed as a cinematic digital résumé
 
 ## Page structure
 
-1. Portrait and introduction
-2. Horizontal organisation logo rail
-3. Experience cards with circular logos, bullet points, and adjacent photo slots
-4. Education
+1. Portrait and single-line introduction heading
+2. Horizontal organisation logo rail (some logos jump to a matching entry below)
+3. Experience entries: a header (date, role, org) above a three-column row of circular logo, bullet points, and photos
+4. Education, in the same pattern as Experience
 5. Intentionally blank hobbies section
 6. Contact and social links
+
+Photos, in-role logos, and the hero portrait are click-to-zoom (a centered lightbox with a dimmed/blurred backdrop); the rail logos in step 2 are navigation-only and don't zoom.
 
 ## Make it yours
 
 Place the résumé and photo folders in this project. The résumé will be the source of truth for role titles, dates, education, contact details, and LinkedIn; replace the remaining placeholder contact links in `index.html` afterward.
 
-Create `images/`, `images/logos/`, and (optionally) one folder per experience. Add assets such as `images/hero-portrait.jpg` and `images/logos/ey.png`. Replace the matching placeholder `<div>` or text logo with an `<img>` tag, keeping helpful `alt` text:
+Create `assets/images/`, `assets/images/logos/`, and (optionally) one folder per experience. Add assets such as `assets/images/hero-portrait.jpg` and `assets/images/logos/ey.png`. Replace the matching placeholder `<div>` or text logo with an `<img>` tag, keeping helpful `alt` text:
 
 ```html
-<img src="images/hero-portrait.jpg" alt="Sparsh Agrawal standing in …" />
+<img src="assets/images/hero-portrait.jpg" alt="Sparsh Agrawal standing in …" />
 ```
 
 Update the LinkedIn and GitHub URLs before publishing. The current links intentionally go to their homepages.
