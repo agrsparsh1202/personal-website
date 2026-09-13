@@ -1,0 +1,74 @@
+# ==============================================================================
+# .gitignore Template for HTML, CSS, and JS Projects
+# ==============================================================================
+
+# Dependencies and Package Managers
+# ------------------------------------------------------------------------------
+node_modules/
+jspm_packages/
+.pnpm-store/
+.yarn/
+# Un-comment the next line if you don't want to commit your yarn lockfile
+# yarn.lock
+
+# Build Outputs, Bundlers, and Compilers
+# ------------------------------------------------------------------------------
+dist/
+build/
+out/
+.next/
+.nuxt/
+.cache/
+.parcel-cache/
+.turbo/
+
+# CSS Preprocessors (Sass/Less compile outputs if you use them)
+# ------------------------------------------------------------------------------
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
+# Environment Variables and Secrets (CRITICAL for security)
+# ------------------------------------------------------------------------------
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.key
+secrets.txt
+
+# Logs and Debugging
+# ------------------------------------------------------------------------------
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor and IDE Specific Files
+# ------------------------------------------------------------------------------
+# Visual Studio Code
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json
+
+# WebStorm / IntelliJ IDEA
+.idea/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Disk / Operating System Metadata (Prevents OS junk uploads)
+# ------------------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
